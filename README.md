@@ -29,4 +29,4 @@
 
 
 ### Other
-- 
+-Telescope<F12> 

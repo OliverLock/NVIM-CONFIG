@@ -32,8 +32,8 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
     {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {"williamboman/mason.nvim"},
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"}
-
+    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},    
+    {'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }}
 }
 
 local ops = {}
@@ -56,3 +56,13 @@ configs.setup({
     highlight = { enable = true },
     indent = { enable = true },  
 })
+
+
+
+-- Setup Telescope
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
