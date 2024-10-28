@@ -41,9 +41,10 @@ local ops = {}
 require("lazy").setup(plugins, opts)
 
 -- Setup catppuccin and set as theme
-require("catppuccin").setup()
+require("catppuccin").setup({
+    flavour = "mocha"
+})
 vim.cmd.colorscheme "catppuccin"
-
 
 -- Setup Mason
 require("mason").setup()
