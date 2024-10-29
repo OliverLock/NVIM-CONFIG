@@ -32,24 +32,8 @@ vim.opt.rtp:prepend(lazypath)
 -- Setup Lazy Look under /lua/plugins/
 require("lazy").setup("plugins")
 
--- Setup catppuccin and set as theme
-require("catppuccin").setup({
-    flavour = "mocha"
-})
-vim.cmd.colorscheme "catppuccin"
-
 -- Setup Mason
 require("mason").setup()
-
-
--- Setup Tree Sitter
-local configs = require("nvim-treesitter.configs")
-configs.setup({
-    ensure_installed = {"lua", "javascript"},
-    highlight = { enable = true },
-    indent = { enable = true },  
-})
-
 
 
 -- Setup Telescope
