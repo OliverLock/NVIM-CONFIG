@@ -7,6 +7,9 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")
 vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=4")
+vim.cmd("set relativenumber")
+
+
 
 
 -- Bootstrap lazy.nvim
@@ -19,8 +22,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
       { out, "WarningMsg" },
       { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
+    }, true, {})vim.fn.getchar()
     os.exit(1)
   end
 end
@@ -33,7 +35,9 @@ local plugins = {
     {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
     {"williamboman/mason.nvim"},
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},    
-    {'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }}
+    {'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
+    {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim",}},
+    {"nvim-tree/nvim-web-devicons"}
 }
 
 local ops = {}
@@ -66,4 +70,16 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find f
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+
+-- Setup NeoTree cmds
+vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<cr>', {})
+
+
+-- Setup Web Dev Icons
+require("nvim-web-dev-icons").setup({
+color_icons = true;
+
+
+})
 
