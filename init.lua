@@ -29,19 +29,8 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 
-
--- Setup Plugins and operations
-local plugins = {
-    {"catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    {"williamboman/mason.nvim"},
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},    
-    {'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
-    {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim",}},
-}
-
-local ops = {}
-
-require("lazy").setup(plugins, opts)
+-- Setup Lazy Look under /lua/plugins/
+require("lazy").setup("plugins")
 
 -- Setup catppuccin and set as theme
 require("catppuccin").setup({
