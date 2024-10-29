@@ -37,7 +37,6 @@ local plugins = {
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},    
     {'nvim-telescope/telescope.nvim', tag = '0.1.8', dependencies = { 'nvim-lua/plenary.nvim' }},
     {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim",}},
-    {"nvim-tree/nvim-web-devicons"}
 }
 
 local ops = {}
@@ -76,10 +75,4 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 vim.keymap.set('n', '<leader>e', ':Neotree filesystem reveal left<cr>', {})
 
 
--- Setup Web Dev Icons
-require("nvim-web-dev-icons").setup({
-color_icons = true;
-
-
-})
 
