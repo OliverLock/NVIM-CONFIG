@@ -14,12 +14,12 @@
 
 ### Package Manager
 - Lazy
-
+- Mason
 
 ### Overview
 - Mason
 - TreeSitter
-
+- neo-tree
 
 
 ### LSPs
@@ -29,4 +29,4 @@
 
 
 ### Other
--Telescope<F12> 
+-Telescope 
