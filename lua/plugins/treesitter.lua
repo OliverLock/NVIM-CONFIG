@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",    
+    build = ":TSUpdate",
 
 -- Setup Treesitter config
     config = function()
@@ -8,7 +8,8 @@ return {
         configs.setup({
          ensure_installed = {"lua", "javascript"},
          highlight = { enable = true },
-         indent = { enable = true },  
+         indent = { enable = true },
+         disable = { "markdown"}
     })
     end
 }
