@@ -67,9 +67,9 @@ return {
 					end, { "i", "s" }),
 				}),
 				sources = {
-					{ name = "nvim_lsp" },
-					{ name = "luasnip" },
-					{ name = "path" },
+					{ name = "nvim_lsp", priority = 10 },
+					{ name = "luasnip", priority = 8 },
+					{ name = "path", priority = 5 },
 				},
 			})
 		end,
