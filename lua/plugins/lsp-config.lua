@@ -1,4 +1,3 @@
--- List of tables as each table own extension
 return {
     {
         "williamboman/mason.nvim",
@@ -10,7 +9,28 @@ return {
         "williamboman/mason-lspconfig.nvim",
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ts_ls" },
+                ensure_installed = {
+                    "lua_ls",
+                    "ts_ls",
+                    "pyright",
+                },
+            })
+        end,
+    },
+    {
+        "jay-babu/mason-null-ls.nvim",
+        event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "williamboman/mason.nvim",
+            "nvimtools/none-ls.nvim",
+        },
+        config = function()
+            require("mason-null-ls").setup({
+                ensure_installed = {
+                    -- Python
+                    "black",
+                    "debugpy",
+                },
             })
         end,
     },
@@ -26,9 +46,15 @@ return {
             lspconfig.ts_ls.setup({
                 capabilities = capabilities,
             })
+            lspconfig.pyright.setup({
+                capabilities = capabilities,
+                pythonPath = "~/src/Light-Novel-Scraper/venv/bin/activate"
+            })
             vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
             vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
             vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
         end,
     },
 }
+
+

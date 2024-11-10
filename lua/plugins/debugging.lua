@@ -5,6 +5,7 @@ return {
 		"nvim-neotest/nvim-nio",
 		"folke/neodev.nvim",
 		"leoluz/nvim-dap-go", -- GO DAP debugger
+		"mfussenegger/nvim-dap-python", -- PYTHON DAP debugger
 	},
 
 	config = function()
@@ -17,6 +18,9 @@ return {
 
 		-- Setup Debbuggers
 		require("dap-go").setup()
+
+    local pythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    require("dap-python").setup(pythonPath)
 
 		-- Setup NeoDev for icons and stuff
 		neodev.setup({
