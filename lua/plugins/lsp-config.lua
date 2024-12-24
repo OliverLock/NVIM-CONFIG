@@ -13,6 +13,7 @@ return {
 					"lua_ls",
 					"ts_ls",
 					"pyright",
+					"clangd",
 				},
 			})
 		end,
@@ -27,9 +28,11 @@ return {
 		config = function()
 			require("mason-null-ls").setup({
 				ensure_installed = {
+					-- Lua
+					"stylua",
 					-- Python
 					"black",
-					"debugpy",
+          "debugpy",
 				},
 			})
 		end,
