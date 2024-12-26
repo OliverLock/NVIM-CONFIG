@@ -17,8 +17,13 @@ return {
 		require("dapui").setup()
 
 		-- Setup Debbuggers
+    -- Go
 		require("dap-go").setup()
 
+    -- C++
+    
+
+    -- python
     local pythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
     require("dap-python").setup(pythonPath)
 
