@@ -4,7 +4,7 @@ return {
 local actions = require("diffview.actions")
 
     -- KeyBindings
-    vim.keymap.set('n', '<leader>gd', function()
+    vim.keymap.set('n', '<leader>dv', function()
       if next(require('diffview.lib').views) == nil then
         vim.cmd('DiffviewOpen')
       else
