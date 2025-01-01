@@ -26,7 +26,7 @@ return {
     dap.adapters.cppdbg = {
       id = "cppdbg",
       type = "executable",
-      command = "/home/oliver/.bin/cpptools/extension/debugAdapters/bin/OpenDebugAD7",
+      command = vim.fn.expand('~/.bin/cpptools/extension/debugAdapters/bin/OpenDebugAD7'),
     }
 
     -- python
