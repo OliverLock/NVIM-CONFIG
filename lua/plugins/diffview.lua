@@ -3,8 +3,17 @@ return {
   config = function()
 local actions = require("diffview.actions")
 
+    -- KeyBindings
+    vim.keymap.set('n', '<leader>gd', function()
+      if next(require('diffview.lib').views) == nil then
+        vim.cmd('DiffviewOpen')
+      else
+        vim.cmd('DiffviewClose')
+      end
+    end)
+
 require("diffview").setup({
-  diff_binaries = false,    -- Show diffs for binaries
+  diff_binaries = false,    -- Show diffs for binaries,
   enhanced_diff_hl = false, -- See |diffview-config-enhanced_diff_hl|
   git_cmd = { "git" },      -- The git executable followed by default args.
   hg_cmd = { "hg" },        -- The hg executable followed by default args.
@@ -24,7 +33,7 @@ require("diffview").setup({
     -- Configure the layout and behavior of different types of views.
     -- Available layouts:
     --  'diff1_plain'
-    --    |'diff2_horizontal'
+    --    |'diff2_horizontal      command = vim.fn.expand('~/.bin/cpptools/extension/debugAdapters/bin/OpenDebugAD7'),'
     --    |'diff2_vertical'
     --    |'diff3_horizontal'
     --    |'diff3_vertical'
