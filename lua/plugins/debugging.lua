@@ -92,6 +92,7 @@ return {
     vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
     vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
     vim.keymap.set({'n','v'}, '<leader>de', function() dapui.eval() end)
+    vim.keymap.set('n', '<leader>du', function() dapui.toggle() end, {})
     -- Setup Virtual Text
     virtualText.setup({
       enabled = true,                  -- enable this plugin (the default)
