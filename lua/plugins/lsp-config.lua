@@ -51,7 +51,6 @@ return {
 			})
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
-				pythonPath = "~/src/Light-Novel-Scraper/venv/bin/activate",
 			})
       lspconfig.clangd.setup({
         capabilities = capabilities,
