@@ -32,7 +32,15 @@ return {
     -- python
     local pythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
     require("dap-python").setup(pythonPath)
-
+    table.insert(require('dap').configurations.python,1, {
+      type = 'python',
+      request = 'launch',
+      name = 'Launch Specific File',
+      program = function()
+          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+        end,
+      console = 'integratedTerminal',
+    })
     --C++ Configure
     dap.configurations.cpp = {
       {
