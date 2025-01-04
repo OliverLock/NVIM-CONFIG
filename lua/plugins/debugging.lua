@@ -93,6 +93,14 @@ return {
       dapui.close()
     end
 
+    -- Dap Breakpoint design
+    vim.fn.sign_define('DapBreakpoint',{ text ='🟥', texthl ='DapBreakpointText', linehl ='', numhl =''})
+    vim.fn.sign_define('DapStopped', {
+      text = '▶️',
+      texthl = 'WarningMsg',  -- Example highlight for the sign's text
+      linehl = 'Visual',      -- Example highlight for the line
+      numhl = 'LineNr'        -- Example highlight for the number column
+    })
     -- Key bindings
     vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
     vim.keymap.set("n", "<F5>", dap.continue, {})
