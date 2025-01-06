@@ -1,9 +1,13 @@
 return {
   "iamcco/markdown-preview.nvim",
-  cmd = { "MarkdownPreviewToggle" },
-  ft = { "markdown" },
-  build = function()
-    vim.fn["mkdp#util#install"]()
+  build = "cd app && npm install",
+  init = function()
+    vim.g.mkdp_filetypes = {"markdown"}
   end,
-  vim.keymap.set('n', '<leader>mp', "<cmd>MarkdownPreviewToggle<cr>")
-} -- Markdown Preview
+  config = function()
+    vim.keymap.set('n', '<leader>mp', "<cmd>MarkdownPreviewToggle<cr>")
+    vim.g.mkdp_port = "8888"
+    vim.g.mkdp_open_to_the_world = false
+    vim.g.mkdp_echo_preview_url = true
+  end,
+}
