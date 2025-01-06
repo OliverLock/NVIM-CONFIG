@@ -14,6 +14,7 @@ return {
 					"ts_ls",
 					"pyright",
 					"clangd",
+          "eslint",
 				},
 			})
 		end,
@@ -53,6 +54,9 @@ return {
 				capabilities = capabilities,
 			})
       lspconfig.clangd.setup({
+        capabilities = capabilities,
+      })
+      lspconfig.eslint.setup({
         capabilities = capabilities,
       })
 			vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
