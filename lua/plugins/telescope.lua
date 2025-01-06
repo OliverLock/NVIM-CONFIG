@@ -9,7 +9,7 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 			vim.keymap.set(
 				"n",
-				"<leader>f.f",
+				"<leader>f..",
 				"<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
 				default_opts
 			)
