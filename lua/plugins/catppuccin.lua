@@ -18,6 +18,7 @@ return {
 				}
 			end,
 		})
-		vim.cmd.colorscheme("catppuccin")
+    -- Re add below line to enable catpuchin
+    -- vim.cmd.colorscheme("catppuccin")
 	end,
 }
