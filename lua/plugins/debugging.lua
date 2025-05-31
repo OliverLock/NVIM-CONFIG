@@ -7,15 +7,23 @@ return {
     "theHamsta/nvim-dap-virtual-text", -- Inline Variables values
     "leoluz/nvim-dap-go",            -- GO DAP debugger
     "mfussenegger/nvim-dap-python",  -- PYTHON DAP debugger
+    "williamboman/mason.nvim",
+    "jay-babu/mason-nvim-dap.nvim",
   },
-
+  lazy = false,
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
     local neodev = require("neodev")
     local virtualText = require("nvim-dap-virtual-text")
 
-    -- setup DAB-UI
+    -- Setup Mason DAP Auto Install
+    require("mason-nvim-dap").setup({
+    ensure_installed = {"codelldb"}, -- keep this empty for now
+    automatic_installation = true,
+  })
+    --
+    -- -- setup DAB-UI
     require("dapui").setup()
 
     -- Setup Debbuggers
@@ -30,7 +38,7 @@ return {
     }
 
     -- python
-    local pythonPath = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
+    local pythonPath = vim.fn.expand("~/.local/share/nvim/mason/packages/debugpy/venv/bin/python")
     require("dap-python").setup(pythonPath)
     table.insert(require('dap').configurations.python,1, {
       type = 'python',
@@ -41,6 +49,26 @@ return {
         end,
       console = 'integratedTerminal',
     })
+    -- More Modern Approach don't know if this matters yet
+    -- dap.configurations.python = {
+    --   {
+    --     name = "Launch File",
+    --     type = "python",
+    --     request = "launch",
+    --     program = function()
+    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+    --     end,
+    --     cwd = "${workspaceFolder}",
+    --     stopAtEntry = true,
+    --     setupCommands = {
+    --       {
+    --         text = "-enable-pretty-printing",
+    --         description = "enable pretty printing",
+    --         ignoreFailures = false,
+    --       },
+    --     },
+    --   },
+    -- }
     --C++ Configure
     dap.configurations.cpp = {
       {
@@ -73,6 +101,31 @@ return {
         end,
       },
     }
+
+    -- -- Rust Debug Config
+    -- codelldb_path = "~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
+    -- -- Configure LLDB adapter
+    -- dap.adapters.lldb = {
+    --     type = "executable",
+    --     command = "/usr/bin/lldb-vscode",
+    --     name = "lldb",
+    -- }
+    -- -- Default debug configuration for C, C++
+    -- dap.configurations.rust = {
+    --     {
+    --         name = "Debug an Executable",
+    --         type = "lldb",
+    --         request = "launch",
+    --         program = function()
+    --             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
+    --         end,
+    --         cwd = "${workspaceFolder}",
+    --         stopOnEntry = false,
+    --     },
+    -- }
+    --
+    
+
 
     -- Setup NeoDev for icons and stuff
     neodev.setup({
