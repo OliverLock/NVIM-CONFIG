@@ -6,7 +6,11 @@ return {
 	config = function()
 		local null_ls = require("null-ls")
 		local venv_path =
-			'import sys; sys.path.append("/usr/lib/python3.11/site-packages"); import pylint_venv; pylint_venv.inithook(force_venv_activation=True, quiet=True)'
+			'import sys; sys.path.append("/home/oliver/.local/lib/python3.13/site-packages"); import pylint_venv; pylint_venv.inithook(force_venv_activation=True, quiet=True)'
+
+    -- Use this on older ubuntu / python setups
+    --local venv_path = 'import sys; sys.path.append("/usr/lib/python3.11/site-packages"); import pylint_venv; pylint_venv.inithook(force_venv_activation=True, quiet=True)'
+
 
 		null_ls.setup({
 			sources = {
