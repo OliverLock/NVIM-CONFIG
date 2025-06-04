@@ -15,7 +15,6 @@ return {
           "pyright",
           "clangd",
           "eslint",
-          --"rust_analyzer",
         },
       })
     end,
@@ -80,10 +79,6 @@ return {
       lspconfig.eslint.setup({
         capabilities = capabilities,
       })
-      --lspconfig.rust_analyzer.setup({
-      --  capabilities = capabilities,
-      --})
-
       -- Configuration for lsp visualisation
       lspconfig.inlay_hints.setup({
         enabled = true,
@@ -91,7 +86,7 @@ return {
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,
-        update_in_insert = false,
+        update_in_insert = true,
         underline = true,
         severity_sort = true,
         float = {
