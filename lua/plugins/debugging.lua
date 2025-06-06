@@ -3,7 +3,6 @@ return {
   dependencies = {
     "rcarriga/nvim-dap-ui",
     "nvim-neotest/nvim-nio",
-    "folke/neodev.nvim",
     "theHamsta/nvim-dap-virtual-text", -- Inline Variables values
     "leoluz/nvim-dap-go",            -- GO DAP debugger
     "mfussenegger/nvim-dap-python",  -- PYTHON DAP debugger
@@ -14,7 +13,7 @@ return {
   config = function()
     local dap = require("dap")
     local dapui = require("dapui")
-    local neodev = require("neodev")
+    --local neodev = require("neodev")
     local virtualText = require("nvim-dap-virtual-text")
 
     -- Setup Mason DAP Auto Install
@@ -49,26 +48,7 @@ return {
         end,
       console = 'integratedTerminal',
     })
-    -- More Modern Approach don't know if this matters yet
-    -- dap.configurations.python = {
-    --   {
-    --     name = "Launch File",
-    --     type = "python",
-    --     request = "launch",
-    --     program = function()
-    --       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-    --     end,
-    --     cwd = "${workspaceFolder}",
-    --     stopAtEntry = true,
-    --     setupCommands = {
-    --       {
-    --         text = "-enable-pretty-printing",
-    --         description = "enable pretty printing",
-    --         ignoreFailures = false,
-    --       },
-    --     },
-    --   },
-    -- }
+
     --C++ Configure
     dap.configurations.cpp = {
       {
@@ -101,36 +81,6 @@ return {
         end,
       },
     }
-
-    -- -- Rust Debug Config
-    -- codelldb_path = "~/.local/share/nvim/mason/packages/codelldb/extension/adapter/codelldb"
-    -- -- Configure LLDB adapter
-    -- dap.adapters.lldb = {
-    --     type = "executable",
-    --     command = "/usr/bin/lldb-vscode",
-    --     name = "lldb",
-    -- }
-    -- -- Default debug configuration for C, C++
-    -- dap.configurations.rust = {
-    --     {
-    --         name = "Debug an Executable",
-    --         type = "lldb",
-    --         request = "launch",
-    --         program = function()
-    --             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-    --         end,
-    --         cwd = "${workspaceFolder}",
-    --         stopOnEntry = false,
-    --     },
-    -- }
-    --
-    
-
-
-    -- Setup NeoDev for icons and stuff
-    neodev.setup({
-      library = { plugins = { "nvim-dap-ui" }, types = true },
-    })
 
     -- DAP UI
     dap.listeners.before.attach.dapui_config = function()
