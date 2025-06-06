@@ -15,6 +15,6 @@ return {
 		})
 	end,
 	vim.keymap.set("n", "<leader>dt", function()
-		require("neotest").run.run({ strategy = "dap" })
+		require("neotest").run.run({ strategy = "dap", suite=false})
 	end),
 }
