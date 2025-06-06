@@ -55,10 +55,8 @@ return {
       lspconfig.eslint.setup({
         capabilities = capabilities,
       })
-      -- Configuration for lsp visualisation
-      lspconfig.inlay_hints.setup({
-        enabled = true,
-      })
+
+      -- Diagnostic config
       vim.diagnostic.config({
         virtual_text = true,
         signs = true,
