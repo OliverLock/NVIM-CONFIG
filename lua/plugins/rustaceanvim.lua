@@ -13,6 +13,5 @@ return {
     }
   end,
   -- Total Hack this should get fixed at some point  in the future to be able to use standard dab continue
-  vim.keymap.set('n', '<F3>', ':RustLsp debuggables<CR>', { noremap = true, silent = true })
-
+  vim.keymap.set('n', '<F4>', ':RustLsp debuggables<CR>', { noremap = true, silent = true })
 }
