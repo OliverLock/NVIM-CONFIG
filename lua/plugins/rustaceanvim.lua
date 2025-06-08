@@ -9,6 +9,7 @@ return {
     vim.g.rustaceanvim = {
       dap = {
         adapter = cfg.get_codelldb_adapter(codelldb_path, liblldb_path),
+        justMyCode = true,
       },
     }
   end,
