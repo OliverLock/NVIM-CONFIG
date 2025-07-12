@@ -40,7 +40,7 @@ return {
       fuzzy = {
         implementation = "prefer_rust_with_warning",
         prebuilt_binaries = {
-          force_version = "v1.3.1", -- specify your desired version here
+          force_version = "v1.4.1", -- specify your desired version here, previously had issues where after updates need to move to new version or nvim will crash.
           download = true,      -- ensure downloading is allowed
         },
       },
