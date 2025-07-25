@@ -24,9 +24,9 @@ return {
 				-- Python
 				null_ls.builtins.formatting.black,
 				null_ls.builtins.formatting.isort,
-				null_ls.builtins.diagnostics.pylint.with({
-					extra_args = { "--init-hook", venv_path },
-				}),
+				-- null_ls.builtins.diagnostics.pylint.with({
+				-- 	extra_args = { "--init-hook", venv_path },
+				-- }),
 				-- spelling
 				null_ls.builtins.completion.spell,
 			},
