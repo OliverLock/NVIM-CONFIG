@@ -6,6 +6,9 @@ return {
 			colors = {
 				onedark = { bg = "#23272e" }, -- one pro dark background
 			},
+      highlights = {
+        ["@odp.import_module.python"] = {fg = "#e5c07b", italic = true},
+      },
 			options = {
 				transparency = true,
 			},
