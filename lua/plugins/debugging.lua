@@ -105,14 +105,14 @@ return {
       numhl = 'LineNr'        -- Example highlight for the number column
     })
     -- Key bindings
-    vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
-    vim.keymap.set("n", "<F5>", dap.continue, {})
-    vim.keymap.set('n', '<F3>', dap.terminate, {})
-    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end)
+    vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {desc = "Toggle Breakpoint"})
+    vim.keymap.set("n", "<F5>", dap.continue, {desc = "Debug Continue"})
+    vim.keymap.set('n', '<F3>', dap.terminate, {desc = "Debug Terminate"})
+    vim.keymap.set('n', '<F10>', function() require('dap').step_over() end, {desc = "Debug Step Over"})
     vim.keymap.set('n', '<F11>', function() require('dap').step_into() end)
     vim.keymap.set('n', '<F12>', function() require('dap').step_out() end)
-    vim.keymap.set({'n','v'}, '<leader>de', function() dapui.eval() end)
-    vim.keymap.set('n', '<leader>du', function() dapui.toggle() end, {})
+    vim.keymap.set({'n','v'}, '<leader>de', function() dapui.eval() end, {desc = "Debug Evaluate"})
+    vim.keymap.set('n', '<leader>du', function() dapui.toggle() end, {desc = "DAPUI Toggle"})
     -- Setup Virtual Text
     virtualText.setup({
       enabled = true,                  -- enable this plugin (the default)

@@ -18,5 +18,5 @@ return {
 	end,
 	vim.keymap.set("n", "<leader>dt", function()
 		require("neotest").run.run({ strategy = "dap", suite = false })
-	end),
+	end, {desc = "Debug Test"}),
 }

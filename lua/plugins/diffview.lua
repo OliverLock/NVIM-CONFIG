@@ -10,7 +10,7 @@ local actions = require("diffview.actions")
       else
         vim.cmd('DiffviewClose')
       end
-    end)
+    end, {desc = "Toggle Diff View"})
 
 require("diffview").setup({
   diff_binaries = false,    -- Show diffs for binaries,
