@@ -36,6 +36,7 @@ return {
 					-- Python
 					"black",
 					"debugpy",
+					"prettier",
 				},
 			})
 		end,
@@ -93,10 +94,8 @@ return {
 			vim.keymap.set("n", "<leader>r", vim.diagnostic.open_float, {})
 			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {})
 
-
-      -- Completion window height
-      vim.o.pumheight = 10
-
+			-- Completion window height
+			vim.o.pumheight = 10
 		end,
 	},
 }
