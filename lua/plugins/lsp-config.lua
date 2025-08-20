@@ -92,6 +92,11 @@ return {
 			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>r", vim.diagnostic.open_float, {})
 			vim.keymap.set("n", "<leader>cr", vim.lsp.buf.rename, {})
+
+
+      -- Completion window height
+      vim.o.pumheight = 10
+
 		end,
 	},
 }
